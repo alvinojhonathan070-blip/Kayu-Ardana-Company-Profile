@@ -100,13 +100,11 @@ body::before {
 
 /* Cursor logic handled in JS, but base style here */
 #custom-cursor {
-    mix-blend-mode: difference;
     z-index: 10000;
 }
 
 #custom-cursor.grow {
     transform: scale(4);
-    background-color: white;
     border: none;
 }
 
