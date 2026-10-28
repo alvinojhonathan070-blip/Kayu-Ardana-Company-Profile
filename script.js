@@ -93,36 +93,47 @@ document.addEventListener('DOMContentLoaded', () => {
 
     filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-            // Update active state
-            filterBtns.forEach(b => b.classList.remove('active', 'border-arang'));
-            filterBtns.forEach(b => b.classList.add('border-garis'));
-            btn.classList.add('active', 'border-arang');
-            btn.classList.remove('border-garis');
+            // Dapatkan kategori (data-filter) dari tombol
+            const filterValue = btn.getAttribute('data-filter');
 
-            const filter = btn.getAttribute('data-filter');
+            // Hapus class dari semua tombol
+            filterBtns.forEach(item => {
+                item.classList.remove('border-black');
+            });
 
+            // Tambahkan class ke tombol yang diklik
+            btn.classList.add('border-black');
+            
+            // Proses filter gambar
             portfolioItems.forEach(item => {
-                if (filter === 'all' || item.classList.contains(filter)) {
-                    item.style.display = 'block';
-                    setTimeout(() => {
-                        item.classList.remove('hidden-item');
-                    }, 10);
-                } else {
-                    item.classList.add('hidden-item');
-                    setTimeout(() => {
+                item.style.opacity = '0';
+                item.style.transform = 'scale(0.95)';
+                item.style.pointerEvents = 'none';
+
+                setTimeout(() => {
+                    if (filterValue === 'all' || item.classList.contains(filterValue)) {
+                        item.style.display = 'block';
+                        
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                            item.style.transform = 'scale(1)';
+                            item.style.pointerEvents = 'auto';
+                        }, 50);
+                    } else {
                         item.style.display = 'none';
-                    }, 500);
-                }
+                    }
+                }, 300); 
             });
         });
     });
 
+    // Aktifkan tombol "Semua" secara default saat web dimuat
+    const allBtn = document.querySelector('.filter-btn[data-filter="all"]');
+    if(allBtn) allBtn.classList.add('border-black');
+
+
     // --- Testimonial Slider (Simplified) ---
     const testimonials = [
-        {
-            text: "Melihat furnitur Ardana adalah melihat waktu yang berhenti. Ada ketenangan di setiap guratan kayunya yang tidak bisa didapat dari toko furnitur modern manapun.",
-            author: "Ibu Sari, Kolektor"
-        },
         {
             text: "Kualitas pengerjaan yang luar biasa. Sambungan kayunya sangat rapi, finishing naturalnya membuat kantor kami terasa hangat dan manusiawi.",
             author: "Bapak Hadi, Arsitek"
@@ -136,29 +147,40 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentTest = 0;
     const testText = document.querySelector('.testimonial-slide blockquote');
     const testAuthor = document.querySelector('.testimonial-slide cite');
-    const prevBtn = document.getElementById('prev-test');
-    const nextBtn = document.getElementById('next-test');
+    const initialText = testText.textContent;
+    const initialAuthor = testAuthor.textContent;
 
-    function updateTestimonial(index) {
-        const slide = document.querySelector('.testimonial-slide');
-        slide.style.opacity = '0';
+    testText.style.transition = "opacity 0.4s ease-in-out";
+    testAuthor.style.transition = "opacity 0.4s ease-in-out";
+
+    function updateTestimonial(startIndex) {
+        let index = startIndex;
         
-        setTimeout(() => {
-            testText.innerText = `"${testimonials[index].text}"`;
-            testAuthor.innerText = `— ${testimonials[index].author}`;
-            slide.style.opacity = '1';
-        }, 300);
+        setInterval(() => {
+            testText.style.opacity = "0";
+            testAuthor.style.opacity = "0";
+
+            setTimeout(() => {
+                if (index < testimonials.length) {
+                    testText.textContent = testimonials[index].text;
+                    testAuthor.textContent = `— ${testimonials[index].author}`;
+                    index++;
+                } else {
+                    testText.textContent = initialText;
+                    testAuthor.textContent = initialAuthor;
+                    index = 0;
+                }
+            
+                testText.style.opacity = "1";
+                testAuthor.style.opacity = "1";
+                
+            }, 400); 
+
+        }, 3000);
     }
 
-    nextBtn.addEventListener('click', () => {
-        currentTest = (currentTest + 1) % testimonials.length;
-        updateTestimonial(currentTest);
-    });
-
-    prevBtn.addEventListener('click', () => {
-        currentTest = (currentTest - 1 + testimonials.length) % testimonials.length;
-        updateTestimonial(currentTest);
-    });
+    updateTestimonial(currentTest);
+        
 
     // --- Contact Form Handling ---
     const contactForm = document.getElementById('contact-form');
@@ -167,7 +189,6 @@ document.addEventListener('DOMContentLoaded', () => {
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
         
-        // Sederhana simulasi pengiriman
         const btn = contactForm.querySelector('button');
         btn.innerText = 'MENGIRIM...';
         btn.disabled = true;

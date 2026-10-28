@@ -5,57 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Rumah Kayu Ardana — Furnitur Jati Handmade</title>
     <meta name="description" content="Studio furnitur dan interior kayu jati handmade asal Jepara. Custom furniture untuk rumah, kafe, dan hotel dengan kualitas warisan generasi.">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="src/output.css">
     <link rel="icon" type="image/png" href="https://i.ibb.co.com/C333sn0n/Gemini-Generated-Image-avv1zavv1zavv1za.jpg">
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;1,9..144,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-
-    <!-- Tailwind CDN untuk preview -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'krem': '#F3EEE6',
-                        'arang': '#1F1C19',
-                        'jati': '#8A5A3B',
-                        'lumut': '#4F5B45',
-                        'garis': '#D9D0C3',
-                    },
-                    fontFamily: {
-                        serif: ['Fraunces', 'serif'],
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                    letterSpacing: {
-                        'tightest': '-0.04em',
-                    },
-                    screens: {
-                        '3xl': '1920px',
-                    }
-                }
-            }
-        }
-    </script>
-
-    <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-krem text-arang font-sans selection:bg-jati selection:text-white overflow-x-hidden">
 
     <!-- Custom Cursor (Desktop) -->
-    <div id="custom-cursor" class="fixed w-4 h-4 border border-jati rounded-full pointer-events-none z-[9999] transition-transform duration-200 ease-out hidden md:block"></div>
+    <div id="custom-cursor" class="fixed w-4 h-4 border border-jati rounded-full pointer-events-none z-9999 transition-transform duration-200 ease-out hidden md:block"></div>
 
     <!-- Navbar -->
-    <nav id="navbar" class="fixed top-0 left-0 w-full z-[100] transition-colors duration-500 py-6 px-6 md:px-12 flex justify-between items-center">
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-100 transition-colors duration-500 py-6 px-6 md:px-12 flex justify-between items-center">
         <a href="#" class="font-serif text-2xl font-bold tracking-tighter">Ardana.</a>
 
-        <div class="hidden md:flex space-x-10 text-sm font-medium uppercase tracking-widest">
+        <div class="hidden md:flex gap-10 text-sm font-medium uppercase tracking-widest">
             <a href="#karya" class="nav-link">Karya</a>
             <a href="#cerita" class="nav-link">Cerita</a>
             <a href="#proses" class="nav-link">Proses</a>
-            <a href="#kontak" class="nav-link border-b border-arang">Mulai Proyek</a>
+            <a href="#kontak" class="nav-link border-b border-black">Mulai Proyek</a>
         </div>
 
         <button id="menu-toggle" class="md:hidden flex flex-col space-y-1.5" aria-label="Buka Menu">
@@ -65,7 +36,7 @@
     </nav>
 
     <!-- Mobile Menu Overlay -->
-    <div id="mobile-menu" class="fixed inset-0 bg-krem z-[200] flex flex-col justify-center items-center opacity-0 pointer-events-none transition-opacity duration-500">
+    <div id="mobile-menu" class="fixed inset-0 bg-krem z-200 flex flex-col justify-center items-center opacity-0 pointer-events-none transition-opacity duration-500">
         <button id="menu-close" class="absolute top-8 right-8 text-sm uppercase tracking-widest" aria-label="Tutup Menu">Tutup —</button>
         <div class="flex flex-col space-y-8 text-center">
             <a href="#karya" class="mobile-nav-link font-serif text-5xl">Karya</a>
@@ -103,8 +74,8 @@
         <!-- Marquee -->
         <section class="border-y border-garis py-8 overflow-hidden bg-arang text-krem">
             <div class="marquee whitespace-nowrap flex space-x-12 items-center">
-                <span class="font-sans text-3xl">Meja Makan · Lemari · Kitchen Set · Interior Kafe · Restorasi · Meja Makan · Lemari · Kitchen Set · Interior Kafe · Restorasi · </span>
-                <span class="font-sans text-3xl">Meja Makan · Lemari · Kitchen Set · Interior Kafe · Restorasi · Meja Makan · Lemari · Kitchen Set · Interior Kafe · Restorasi · </span>
+                <span class="font-sans text-3xl italic">Meja Makan · Lemari · Kitchen Set · Interior Kafe · Restorasi · Meja Makan · Lemari · Kitchen Set · Interior Kafe · Restorasi · </span>
+                <span class="font-sans text-3xl italic">Meja Makan · Lemari · Kitchen Set · Interior Kafe · Restorasi · Meja Makan · Lemari · Kitchen Set · Interior Kafe · Restorasi · </span>
             </div>
         </section>
 
@@ -141,22 +112,22 @@
                 <span class="hidden md:block text-sm opacity-60">PROSES KERJA KAMI</span>
             </div>
             <div class="flex overflow-x-auto pb-12 px-6 md:px-12 space-x-12 scrollbar-hide">
-                <div class="min-w-[300px] md:min-w-[400px] reveal">
+                <div class="min-w-75 md:min-w-100 reveal">
                     <span class="font-serif text-6xl opacity-20 block mb-6">01</span>
                     <h3 class="text-xl font-bold mb-4 uppercase">Memilih Kayu</h3>
                     <p class="opacity-70 leading-relaxed">Hanya jati perhutani berkualitas tinggi. Kami mencari serat yang stabil dan karakter yang kuat untuk setiap pesanan.</p>
                 </div>
-                <div class="min-w-[300px] md:min-w-[400px] reveal delay-100">
+                <div class="min-w-75 md:min-w-100 reveal delay-100">
                     <span class="font-serif text-6xl opacity-20 block mb-6">02</span>
                     <h3 class="text-xl font-bold mb-4 uppercase">Pengeringan</h3>
                     <p class="opacity-70 leading-relaxed">Kayu dijemur dan di-oven selama minimal 3 bulan hingga mencapai kadar air 12%. Kunci furnitur yang tidak mudah melengkung.</p>
                 </div>
-                <div class="min-w-[300px] md:min-w-[400px] reveal delay-200">
+                <div class="min-w-75 md:min-w-100 reveal delay-200">
                     <span class="font-serif text-6xl opacity-20 block mb-6">03</span>
                     <h3 class="text-xl font-bold mb-4 uppercase">Pengerjaan Tangan</h3>
                     <p class="opacity-70 leading-relaxed">Tanpa mesin CNC masal. Setiap sambungan kayu menggunakan teknik purus (mortise and tenon) tradisional yang sangat kuat.</p>
                 </div>
-                <div class="min-w-[300px] md:min-w-[400px] reveal delay-300">
+                <div class="min-w-75 md:min-w-100 reveal delay-300">
                     <span class="font-serif text-6xl opacity-20 block mb-6">04</span>
                     <h3 class="text-xl font-bold mb-4 uppercase">Finishing Alami</h3>
                     <p class="opacity-70 leading-relaxed">Menggunakan minyak alami atau wax pilihan yang menjaga pori-pori kayu tetap bernapas dan aman bagi kesehatan penghuni.</p>
@@ -169,50 +140,50 @@
             <div class="flex flex-col md:flex-row justify-between items-center mb-16 gap-8">
                 <h2 class="font-serif text-5xl">Arsip Karya.</h2>
                 <div id="filter-container" class="flex flex-wrap gap-4 text-xs uppercase tracking-widest font-medium">
-                    <button class="filter-btn active border border-arang px-4 py-2" data-filter="all">Semua</button>
-                    <button class="filter-btn border border-garis px-4 py-2 hover:border-arang" data-filter="rumah">Rumah</button>
-                    <button class="filter-btn border border-garis px-4 py-2 hover:border-arang" data-filter="kafe">Kafe</button>
-                    <button class="filter-btn border border-garis px-4 py-2 hover:border-arang" data-filter="hotel">Hotel</button>
+                    <button class="filter-btn border-2 px-4 py-2" data-filter="all">Semua</button>
+                    <button class="filter-btn border-2 px-4 py-2" data-filter="rumah">Rumah</button>
+                    <button class="filter-btn border-2 px-4 py-2" data-filter="kafe">Kafe</button>
+                    <button class="filter-btn border-2 px-4 py-2" data-filter="hotel">Hotel</button>
                 </div>
             </div>
 
             <div id="portfolio-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="portfolio-item rumah reveal h-[500px] relative overflow-hidden group">
+                <div class="portfolio-item rumah reveal h-150 relative overflow-hidden group">
                     <img src="https://images.unsplash.com/photo-1538688525198-9b88f6f53126?q=80&w=1000&auto=format&fit=crop" alt="Meja makan minimalis jati" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
                     <div class="absolute inset-0 bg-arang/40 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-8 text-krem">
                         <span class="text-xs uppercase tracking-widest mb-2">Kediaman Serpong, 2023</span>
                         <h4 class="font-serif text-2xl">Meja Makan Suar 3 Meter</h4>
                     </div>
                 </div>
-                <div class="portfolio-item kafe reveal delay-100 h-[600px] lg:mt-20 relative overflow-hidden group">
+                <div class="portfolio-item kafe reveal delay-100 h-150 relative overflow-hidden group">
                     <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=1000&auto=format&fit=crop" alt="Interior kafe kayu jati" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
                     <div class="absolute inset-0 bg-arang/40 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-8 text-krem">
                         <span class="text-xs uppercase tracking-widest mb-2">Ubud Roastery, 2022</span>
                         <h4 class="font-serif text-2xl">Bangku Bar Jati Solid</h4>
                     </div>
                 </div>
-                <div class="portfolio-item hotel reveal delay-200 h-[450px] relative overflow-hidden group">
+                <div class="portfolio-item hotel reveal delay-200 h-150 relative overflow-hidden group">
                     <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1000&auto=format&fit=crop" alt="Bed frame kayu jati custom" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
                     <div class="absolute inset-0 bg-arang/40 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-8 text-krem">
                         <span class="text-xs uppercase tracking-widest mb-2">Ametis Villa, 2024</span>
                         <h4 class="font-serif text-2xl">Bed Frame Minimalis</h4>
                     </div>
                 </div>
-                <div class="portfolio-item rumah reveal h-[550px] md:-mt-20 relative overflow-hidden group">
+                <div class="portfolio-item rumah reveal h-150 relative overflow-hidden group">
                     <img src="https://images.unsplash.com/photo-1567016432779-094069958ea5?q=80&w=1000&auto=format&fit=crop" alt="Lemari buku kayu jati" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
                     <div class="absolute inset-0 bg-arang/40 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-8 text-krem">
                         <span class="text-xs uppercase tracking-widest mb-2">Lebak Bulus, 2023</span>
                         <h4 class="font-serif text-2xl">Perpustakaan Pribadi</h4>
                     </div>
                 </div>
-                <div class="portfolio-item hotel reveal delay-100 h-[500px] relative overflow-hidden group">
+                <div class="portfolio-item hotel reveal delay-100 h-150 relative overflow-hidden group">
                     <img src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?q=80&w=1000&auto=format&fit=crop" alt="Resepsionis hotel kayu jati" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
                     <div class="absolute inset-0 bg-arang/40 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-8 text-krem">
                         <span class="text-xs uppercase tracking-widest mb-2">The Jati Resort, 2024</span>
                         <h4 class="font-serif text-2xl">Area Lobi Utama</h4>
                     </div>
                 </div>
-                <div class="portfolio-item kafe reveal delay-200 h-[400px] lg:-mt-32 relative overflow-hidden group">
+                <div class="portfolio-item kafe reveal delay-200 h-150 relative overflow-hidden group">
                     <img src="https://images.unsplash.com/photo-1542372147193-a7aca54189cd?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" alt="Coffee table kayu jati" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
                     <div class="absolute inset-0 bg-arang/40 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-8 text-krem">
                         <span class="text-xs uppercase tracking-widest mb-2">Kopi Senja, 2022</span>
@@ -246,7 +217,7 @@
 
         <!-- Testimoni -->
         <section class="py-32 px-6 md:px-12 max-w-5xl mx-auto text-center">
-            <div class="relative min-h-[300px] flex items-center justify-center">
+            <div class="relative min-h-75 flex items-center justify-center">
                 <div id="testimonial-slider" class="w-full">
                     <div class="testimonial-slide active">
                         <blockquote class="font-serif text-3xl md:text-5xl leading-tight mb-8">
@@ -255,10 +226,6 @@
                         <cite class="not-italic text-sm uppercase tracking-widest opacity-60">— Ibu Sari, Kolektor</cite>
                     </div>
                 </div>
-            </div>
-            <div class="flex justify-center space-x-12 mt-12">
-                <button id="prev-test" class="hover:text-jati transition-colors">← Sebelumnya</button>
-                <button id="next-test" class="hover:text-jati transition-colors">Berikutnya →</button>
             </div>
         </section>
 
@@ -283,14 +250,14 @@
                     </div>
                 </div>
                 <div class="reveal delay-300">
-                    <form id="contact-form" class="space-y-8">
+                    <form id="contact-form" class="space-y-8 border-2 p-5 border-black">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                             <div class="flex flex-col border-b border-garis pb-2 focus-within:border-jati transition-colors">
                                 <label for="name" class="text-[10px] uppercase tracking-widest mb-1 opacity-60">Nama Lengkap</label>
                                 <input type="text" id="name" name="name" required class="bg-transparent border-none outline-none py-2 font-medium" placeholder="Siapa Anda?">
                             </div>
                             <div class="flex flex-col border-b border-garis pb-2 focus-within:border-jati transition-colors">
-                                                                <label for="email" class="text-[10px] uppercase tracking-widest mb-1 opacity-60">Alamat Surel</label>
+                                                                <label for="email" class="text-[10px] uppercase tracking-widest mb-1 opacity-60">Email</label>
                                 <input type="email" id="email" name="email" required class="bg-transparent border-none outline-none py-2 font-medium" placeholder="nama@perusahaan.com">
                             </div>
                         </div>
@@ -336,7 +303,7 @@
             </div>
         </div>
         <div class="pt-20 border-t border-garis">
-            <h2 class="font-serif text-[12vw] leading-none tracking-tighter text-garis/30 select-none">RUMAH KAYU ARDANA</h2>
+            <h2 class="font-serif text-3xl leading-none tracking-tighter text-garis/50 select-none">RUMAH KAYU ARDANA</h2>
             <div class="flex flex-col md:flex-row justify-between items-center mt-8 text-[10px] uppercase tracking-widest opacity-40">
                 <p>© 2011 — 2026 ARDANA STUDIO. HAK CIPTA DILINDUNGI.</p>
                 <p>HANDMADE IN JEPARA, INDONESIA</p>
@@ -347,4 +314,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-
