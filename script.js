@@ -199,4 +199,4 @@ document.addEventListener('DOMContentLoaded', () => {
             formStatus.classList.remove('hidden');
         }, 1500);
     });
-});
+}); 
